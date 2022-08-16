@@ -1,28 +1,36 @@
 <template>
-  <Header></Header>
-  <div class="container"></div>
+  <Header @get-height="getHeaderHeight"></Header>
+  <Banner v-bind:style="{'margin-top': height+'px'}"></Banner>
   <Footer></Footer>
 </template>
 
 <script>
 // @ is an alias to /src
 import Header from "@/components/Header.vue";
+import Banner from "@/components/Banner.vue";
 import Footer from "@/components/Footer.vue";
 export default {
   name: "Home",
   components: {
     Header,
-    Footer,
+    Banner,
+    Footer
   },
+  data() {
+    return {
+      height: 0 
+    }
+  },
+  methods: {
+    getHeaderHeight: function(height) {
+      this.height = height;
+    }
+  }
 };
 </script>
 
 <style lang="scss">
-Header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-}
+
 Footer {
   margin-top: 200px;
 }
