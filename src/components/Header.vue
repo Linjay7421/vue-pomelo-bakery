@@ -1,6 +1,6 @@
 <template>
-  <header class="text-center shadow-xl p-4 mb-10">
-    <ul class="grid grid-cols-5 gap-5">
+  <header class="shadow-xl" v-bind:class="{ 'dispend': active }" ref="infoBox">
+    <ul class="grid grid-cols-5 content-center">
       <li>介紹</li>
       <li>種類</li>
       <li><img src="@/assets/images/logo.png" /></li>
@@ -13,20 +13,47 @@
 <script>
 export default {
   name: "Header",
-  props: {},
+  data() {
+    return {
+      active: false,
+      height: 0,
+    };
+  },
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll: function () {
+      this.active = window.scrollY > this.height ? true : false;
+    },
+  },
+  mounted() {
+    this.height = this.$refs.infoBox.clientHeight;
+    this.$emit("get-height", this.height);
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.dispend {
+  padding: 11px 0;
+}
 header {
-  padding-top: 49px;
+  width: 100vw;
+  height: auto;
   background-color: #fff;
+  padding: 49px 0 11px 0;
+  transition: 0.15s all ease;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
   > ul {
-    display: flex;
+    width: 100%;
     list-style: none;
-    justify-content: center;
     align-items: flex-end;
+    justify-items: center;
     padding: 0;
     margin: 0;
     > li {
