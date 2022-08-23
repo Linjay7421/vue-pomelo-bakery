@@ -4,7 +4,7 @@
       <li>介紹</li>
       <li>種類</li>
       <li><img src="@/assets/images/logo.png" /></li>
-      <li>搜尋</li>
+      <li>購物車</li>
       <li>訂單</li>
     </ul>
   </header>
@@ -37,7 +37,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .dispend {
-  padding: 11px 0;
+  padding-top: 11px;
 }
 header {
   width: 100vw;
