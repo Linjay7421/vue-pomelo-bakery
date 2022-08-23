@@ -3,7 +3,6 @@
   <Banner v-bind:style="{'margin-top': height+'px'}"></Banner>
   <Announce></Announce>
   <SlideShow></SlideShow>  
-  <slide></slide>
   <Footer></Footer>
 
 </template>
