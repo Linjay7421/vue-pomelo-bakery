@@ -14,8 +14,8 @@
           <div class="swiper-slide page3">page 3</div>
           <div class="swiper-slide page4">page 4</div>
         </div>
-        <!-- <button class="next">next</button>
-        <button class="prev">prev</button> -->
+        <button class="next"><i class="fa-solid fa-angle-right"></i></button>
+        <button class="prev"><i class="fa-solid fa-angle-left"></i></button>
       </div>
     </div>
     <div class="bg"></div>
@@ -23,16 +23,18 @@
 </template>
 
 <script>
-import { onMounted, reactive } from "vue";
-import Swiper from "swiper";
+import { onMounted, ref } from "vue";
+import Swiper, { Navigation } from "swiper";
 import "swiper/css";
+
+Swiper.use([Navigation]);
 
 export default {
   name: "SlideShow",
   setup() {
-    const swiper = reactive();
+    const swiper = ref();
     onMounted(() => {
-      swiper = new Swiper(".mySwiper", {
+      swiper.value = new Swiper(".mySwiper", {
         navigation: {
           nextEl: ".next",
           prevEl: ".prev",
@@ -44,39 +46,6 @@ export default {
 </script>
 
 <style lang="scss">
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-.swiper-slide {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  letter-spacing: 0.2em;
-  img {
-    background: transparent;
-    max-width: 60%;
-  }
-  p {
-    margin-bottom: 0.5rem;
-  }
-  span {
-    color: #dba855;
-    margin-bottom: 0.5rem;
-  }
-  button {
-    background-color: #23a36b;
-    color: #fff;
-    padding: 0.5rem 1.5rem;
-  }
-}
-.next, .prev {
-  background: #23a36b;
-  color: #fff;
-  padding: 1rem;
-}
 .slideShow {
   position: relative;
   > .bg {
@@ -110,6 +79,49 @@ export default {
       width: 100%;
       text-align: center;
       letter-spacing: 1rem;
+    }
+    .swiper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      .swiper-slide {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: 0.2em;
+        > img {
+          background: transparent;
+          max-width: 60%;
+        }
+        > p {
+          margin-bottom: 0.5rem;
+        }
+        > span {
+          color: #dba855;
+          margin-bottom: 0.5rem;
+        }
+        > button {
+          background-color: #23a36b;
+          color: #fff;
+          padding: 0.5rem 1.5rem;
+        }
+      }
+      > button {
+        background: rgba(0, 0, 0, 0.3);
+        color: #fff;
+        padding: 1rem;
+        position: absolute;
+        top: 30%;
+        z-index: 99;
+        &.next {
+          right: 0;
+        }
+        &.prev {
+          left: 0;
+        }
+      }
     }
   }
 }
