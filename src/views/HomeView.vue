@@ -38,8 +38,4 @@ export default {
 </script>
 
 <style lang="scss">
-
-Footer {
-  margin-top: 200px;
-}
 </style>
