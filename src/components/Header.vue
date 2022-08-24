@@ -29,7 +29,7 @@ export default {
   },
   mounted() {
     this.height = this.$refs.infoBox.clientHeight;
-    this.$emit("get-height", this.height);
+    this.$emit("get-height", this.height-30);
   },
 };
 </script>
