@@ -45,7 +45,7 @@ export default {
     color: #dba855;
     border: 1px solid#dba855;
     padding: 0.2rem 1rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
     &:after {
       font-family: "Font Awesome 5 Free";
       font-weight: 900;
