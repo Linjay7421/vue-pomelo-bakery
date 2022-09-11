@@ -1,10 +1,9 @@
 <template>
-  <Header @get-height="getHeaderHeight"></Header>
-  <Banner v-bind:style="{'margin-top': height+'px'}"></Banner>
+  <Header></Header>
+  <Banner></Banner>
   <Announce></Announce>
   <SlideShow></SlideShow>  
   <Footer></Footer>
-
 </template>
 
 <script>
@@ -28,14 +27,6 @@ export default {
     return {
       height: 0 
     }
-  },
-  methods: {
-    getHeaderHeight: function(height) {
-      this.height = height;
-    }
   }
 };
 </script>
-
-<style lang="scss">
-</style>

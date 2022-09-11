@@ -13,14 +13,10 @@
   src: url(@/assets/fonts/TaipeiSansTCBeta-Bold.ttf) format("opentype");
 }
 html {
-  font-size: 12px;
+  font-size: 16px;
 }
 body {
   overflow-x: hidden;
   font-family: Arial, TaipeiSansTCBeta-Regular,sans-serif;
-}
-h1, h2, h3, h4 , h5 {
-  font-family: "TaipeiSansTCBeta-Bold";
-  display: block;
 }
 </style>

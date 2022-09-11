@@ -1,9 +1,17 @@
 <template>
-  <header class="shadow-xl" v-bind:class="{ 'dispend': active }" ref="infoBox">
+  <header class="shadow-xl" v-bind:class="{ dispend: active }" ref="infoBox">
     <ul class="grid grid-cols-5 content-center">
-      <li>介紹</li>
-      <li>種類</li>
-      <li><img src="@/assets/images/logo.png" /></li>
+      <li>
+        <router-link to="/about"> 介紹 </router-link>
+      </li>
+      <li>
+        <router-link to="/category"> 種類 </router-link>
+      </li>
+      <li>
+        <router-link to="/">
+          <img src="@/assets/images/logo.png" />
+        </router-link>
+      </li>
       <li>購物車</li>
       <li>訂單</li>
     </ul>
@@ -27,10 +35,6 @@ export default {
       this.active = window.scrollY > this.height ? true : false;
     },
   },
-  mounted() {
-    this.height = this.$refs.infoBox.clientHeight;
-    this.$emit("get-height", this.height-30);
-  },
 };
 </script>
 
@@ -45,7 +49,7 @@ header {
   background-color: #fff;
   padding: 49px 0 11px 0;
   transition: 0.15s all ease;
-  position: fixed;
+  position: sticky;
   z-index: 2;
   top: 0;
   left: 0;
@@ -58,7 +62,7 @@ header {
     margin: 0;
     > li {
       padding: 2px 5px;
-      > img {
+      img {
         width: 50px;
         height: 50px;
       }

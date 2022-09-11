@@ -1,14 +1,16 @@
 <template>
   <!-- 改前三個、然後要有公告頁面 -->
   <div class="announce">
-    <h1 class="title">公告</h1>
+    <b class="title text-xl">公告</b>
     <div class="item">
       <span class="date">2022.3</span>
       <p class="content">
         柚子要交女朋友了，究竟他能不能成功脫魯呢，就讓我們好好的看下去，所以柚子烘焙坊推出，魯蛇限定款麵包，現正發售中。
       </p>
     </div>
-    <button class="btn_more rounded-3xl">See more</button>
+    <router-link to="/announce">
+      <button class="btn_more rounded-3xl px-5 py-2">更多公告</button>
+    </router-link>
   </div>
 </template>
 
@@ -44,7 +46,6 @@ export default {
   .btn_more {
     color: #dba855;
     border: 1px solid#dba855;
-    padding: 0.2rem 1rem;
     margin-top: 2rem;
     &:after {
       font-family: "Font Awesome 5 Free";
